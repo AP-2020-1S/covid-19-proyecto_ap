@@ -1,21 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-        <title>Covid-19</title>
-      </head>
-    <body>
+<head>
+  <meta charset="utf-8">
+  <title>Embedded Analytics with Tableau</title>
+  
+</head>
+<body>
+  <div id="vizContainer"></div>
+  <script src="https://us-east-1.online.tableau.com/javascripts/api/tableau-2.min.js"></script>
+  <script>
+    var viz
+    function initViz() {
+      var containerDiv = document.getElementById("vizContainer"),
+      url = "https://prod-useast-a.online.tableau.com/t/projects/views/SupertiendaPrueba/Descripcingeneral?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link";
 
-        <p>Reporte de casos</p>
-
-        <nav>
-            <a href="https://datastudio.google.com/s/uktFpBY1fcU" class="boton-head">
-            "Tablero de mando"
-            <br>
-            "DataStudio"
-            </a>
-        </nav>
-
-    </body>
+      viz = new tableau.Viz(containerDiv, url);
+    }
+    initViz();
+  </script>
+  
+</body>
 </html>
