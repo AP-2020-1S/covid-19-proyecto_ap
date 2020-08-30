@@ -3,22 +3,19 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Embedded Analytics with Tableau</title>
-  
+  <title>Embedded Analytics with Tableau Online</title>
 </head>
 <body>
-  <div id="vizContainer"></div>
-  <script src="https://us-east-1.online.tableau.com/javascripts/api/tableau-2.min.js"></script>
-  <script>
-    var viz
-    function initViz() {
-      var containerDiv = document.getElementById("vizContainer"),
-      url = "https://prod-useast-a.online.tableau.com/t/projects/views/SupertiendaPrueba/Descripcingeneral?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link";
-
-      viz = new tableau.Viz(containerDiv, url);
-    }
-    initViz();
-  </script>
-  
+    <script type='text/javascript' src='https://prod-useast-a.online.tableau.com/javascripts/api/viz_v1.js'></script>
+    <div class='tableauPlaceholder' style='width: 1536px; height: 669px;'>
+        <object class='tableauViz' width='1536' height='669' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fprod-useast-a.online.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='&#47;t&#47;projects' />
+            <param name='name' value='SupertiendaPrueba&#47;Descripcingeneral' />
+            <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+            <param name='showAppBanner' value='false' />
+        </object>
+    </div>
 </body>
 </html>
