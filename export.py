@@ -91,6 +91,6 @@ for i in ciudades:
   globals()['union_'+str(i[0:3])]['Ciudad'] = i
 
 union = np.concatenate([union_Bar,union_Bog,union_Cal,union_Car,union_Med])
-union = pd.DataFrame(union,columns=['Fecha','Contagios acum','Activos','Muertes','Recuperados','Contagios por día','Ciudad'])
+union = pd.DataFrame(union,columns=['Fecha','Contagios acum','Activos','Muertes','Recuperados','Contagios por dia','Ciudad'])
 
 union.to_csv('data.csv')
