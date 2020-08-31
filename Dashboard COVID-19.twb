@@ -1,0 +1,1335 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20203.20.0801.1333                               -->
+<workbook original-version='18.1' source-build='2020.3.0 (20203.20.0801.1333)' source-platform='win' version='18.1' xml:base='https://prod-useast-a.online.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <_.fcp.SetMembershipControl.true...SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <repository-location id='DashboardCOVID-19' path='/t/projects/workbooks' revision='1.0' site='projects' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='data' inline='true' name='federated.1ol70y109h5dm512ruy7f19hg1pr' version='18.1'>
+      <repository-location id='data' path='datasources' revision='1.0' />
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='data' name='textscan.1y6ryjc06bdegi1axvo531rb28ri'>
+            <connection class='textclean' cleaning='yes' compat='no' csvFile='C:/Users/melis/Documents/covid-19-proyecto_ap/data.csv' dataRefreshTime='' directory='C:/Users/melis/Documents/covid-19-proyecto_ap' filename='C:/Users/melis/AppData/Local/Temp/TableauTemp/13wqnyv0tzyoyk19jll4o1r0fm3e/data.csv.xlsx' interpretationMode='8' password='' port='0' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.1y6ryjc06bdegi1axvo531rb28ri' name='data.csv' table='[data#csv$]' type='table'>
+          <columns gridOrigin='A1:A823:no:A1:A823:0'>
+            <column datatype='string' name=',Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad' ordinal='0' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.1y6ryjc06bdegi1axvo531rb28ri' name='data.csv' table='[data#csv$]' type='table'>
+          <columns gridOrigin='A1:A823:no:A1:A823:0'>
+            <column datatype='string' name=',Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad' ordinal='0' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <refresh increment-key='' incremental-updates='false' />
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[data.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:A823:no:A1:A823:0&quot;</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]</local-name>
+            <parent-name>[data.csv]</parent-name>
+            <remote-alias>,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LES_RCO_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[data.csv_2F9B9FE56DCE4D2B8D5B53A2FD09E2E0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Fecha' datatype='date' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+        <calculation class='tableau' formula='DATE(DATEPARSE ( &quot;yyyy-MM-dd&quot;, TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 2 ) ) )) ' />
+      </column>
+      <column caption='Contagios' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 3]' role='measure' type='quantitative' user:SplitFieldIndex='3' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 3 ) ))' />
+      </column>
+      <column caption='Activos' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4]' role='measure' type='quantitative' user:SplitFieldIndex='4' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 4 ) ))' />
+      </column>
+      <column caption='Muertes' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5]' role='measure' type='quantitative' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 5 ) ))' />
+      </column>
+      <column caption='Recuperados' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6]' role='measure' type='quantitative' user:SplitFieldIndex='6' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 6 ) ))' />
+      </column>
+      <column caption='Nuevos contagios' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 7]' role='measure' type='quantitative' user:SplitFieldIndex='7' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+        <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 7 ) ))' />
+      </column>
+      <column caption='Ciudad' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' role='dimension' type='nominal' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 8 ) )' />
+      </column>
+      <column caption='Concat' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]' role='dimension' type='nominal' />
+      <_.fcp.ObjectModelTableType.true...column caption='data.csv' datatype='table' name='[__tableau_internal_object_id__].[data.csv_2F9B9FE56DCE4D2B8D5B53A2FD09E2E0]' role='measure' type='quantitative' />
+      <column-instance column='[Forecast Indicator]' derivation='None' forecast-column-base='[Forecast Indicator]' forecast-column-type='forecast-indicator' name='[none:Forecast Indicator:nk]' pivot='key' type='nominal' />
+      <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5]' derivation='Sum' name='[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6]' derivation='Sum' name='[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6:qk]' pivot='key' type='quantitative' />
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='es_ES' class='hyper' dbname='C:/Users/melis/Documents/Mi Repositorio de Tableau/Fuentes de datos/data-covid.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='08/31/2020 01:07:40 AM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh increment-key='' incremental-updates='false'>
+            <refresh-event add-from-file-path='data' increment-value='%null%' refresh-type='create' rows-inserted='822' timestamp-start='2020-08-31 01:07:40.090' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad</remote-alias>
+              <ordinal>0</ordinal>
+              <family>data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>822</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LES_RCO_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[data.csv_2F9B9FE56DCE4D2B8D5B53A2FD09E2E0]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6:qk]&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Colombia&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <default-sorts>
+        <manual-sort column='[none:Forecast Indicator:nk]' direction='ASC'>
+          <dictionary>
+            <bucket>&quot;Actual&quot;</bucket>
+            <bucket>&quot;Estimación&quot;</bucket>
+          </dictionary>
+        </manual-sort>
+      </default-sorts>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='data.csv' id='data.csv_2F9B9FE56DCE4D2B8D5B53A2FD09E2E0'>
+            <properties context=''>
+              <relation connection='textscan.1y6ryjc06bdegi1axvo531rb28ri' name='data.csv' table='[data#csv$]' type='table'>
+                <columns gridOrigin='A1:A823:no:A1:A823:0'>
+                  <column datatype='string' name=',Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad' ordinal='0' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.1ol70y109h5dm512ruy7f19hg1pr'>
+      <datasources>
+        <datasource caption='data' name='federated.1ol70y109h5dm512ruy7f19hg1pr' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1ol70y109h5dm512ruy7f19hg1pr'>
+        <column caption='Ciudad' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' role='dimension' type='nominal' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+          <calculation class='tableau' formula='TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 8 ) )' />
+        </column>
+        <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' derivation='None' name='[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.1ol70y109h5dm512ruy7f19hg1pr].[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]'>
+        <groupfilter function='level-members' level='[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='Activos'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='13'>Activos</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data' name='federated.1ol70y109h5dm512ruy7f19hg1pr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ol70y109h5dm512ruy7f19hg1pr'>
+            <column caption='Fecha' datatype='date' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='DATE(DATEPARSE ( &quot;yyyy-MM-dd&quot;, TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 2 ) ) )) ' />
+            </column>
+            <column caption='Activos' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4]' role='measure' type='quantitative' user:SplitFieldIndex='4' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 4 ) ))' />
+            </column>
+            <column caption='Ciudad' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' role='dimension' type='nominal' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 8 ) )' />
+            </column>
+            <column caption='Concat' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]' role='dimension' type='nominal' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' derivation='None' name='[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' pivot='key' type='nominal' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4]' derivation='Sum' name='[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2]' derivation='Day-Trunc' name='[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1ol70y109h5dm512ruy7f19hg1pr].[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]' scope='cols' value='Fecha' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4:qk]</rows>
+        <cols>[federated.1ol70y109h5dm512ruy7f19hg1pr].[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]</cols>
+      </table>
+      <simple-id uuid='{D24B1FD3-8DA8-4B13-B434-0F317A071507}' />
+    </worksheet>
+    <worksheet name='Card Activos'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data' name='federated.1ol70y109h5dm512ruy7f19hg1pr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ol70y109h5dm512ruy7f19hg1pr'>
+            <column caption='Activos' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4]' role='measure' type='quantitative' user:SplitFieldIndex='4' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 4 ) ))' />
+            </column>
+            <column caption='Ciudad' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' role='dimension' type='nominal' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 8 ) )' />
+            </column>
+            <column caption='Concat' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]' role='dimension' type='nominal' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' derivation='None' name='[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' pivot='key' type='nominal' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4]' derivation='Sum' name='[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1ol70y109h5dm512ruy7f19hg1pr].[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='231' />
+            <format attr='height' value='80' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontsize='22'>&lt;</run>
+                <run fontsize='22'>[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 4:qk]</run>
+                <run fontsize='22'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+                <format attr='wrap' value='auto' />
+                <format attr='vertical-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{324D99EC-20BC-4454-9904-D04412BC2801}' />
+    </worksheet>
+    <worksheet name='Contagios'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='13'>Contagios</run>
+            <run>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data' name='federated.1ol70y109h5dm512ruy7f19hg1pr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ol70y109h5dm512ruy7f19hg1pr'>
+            <column caption='Fecha' datatype='date' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='DATE(DATEPARSE ( &quot;yyyy-MM-dd&quot;, TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 2 ) ) )) ' />
+            </column>
+            <column caption='Contagios' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 3]' role='measure' type='quantitative' user:SplitFieldIndex='3' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 3 ) ))' />
+            </column>
+            <column caption='Nuevos contagios' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 7]' role='measure' type='quantitative' user:SplitFieldIndex='7' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 7 ) ))' />
+            </column>
+            <column caption='Ciudad' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' role='dimension' type='nominal' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 8 ) )' />
+            </column>
+            <column caption='Concat' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]' role='dimension' type='nominal' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' derivation='None' name='[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' pivot='key' type='nominal' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 3]' derivation='Sum' name='[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 3:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 7]' derivation='Sum' name='[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 7:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2]' derivation='Day-Trunc' name='[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1ol70y109h5dm512ruy7f19hg1pr].[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]' value='65' />
+            <format attr='title' class='0' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]' scope='cols' value='Fecha' />
+            <format attr='title' class='0' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 7:qk]' scope='rows' value='Contagios diario' />
+            <format attr='title' class='0' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 3:qk]' scope='rows' value='Contagios acum' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#72b966' />
+                <format attr='mark-markers-mode' value='none' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 7:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#72b966' />
+                <format attr='mark-markers-mode' value='none' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 3:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#499894' />
+                <format attr='mark-markers-mode' value='none' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 7:qk] + [federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 3:qk])</rows>
+        <cols>[federated.1ol70y109h5dm512ruy7f19hg1pr].[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]</cols>
+      </table>
+      <simple-id uuid='{9419BFA1-28EE-4D3D-870B-EABE383F1414}' />
+    </worksheet>
+    <worksheet name='Recup vs Muer'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='13'>Recuperados vs Muertes</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='data' name='federated.1ol70y109h5dm512ruy7f19hg1pr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1ol70y109h5dm512ruy7f19hg1pr'>
+            <column caption='Fecha' datatype='date' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2]' role='dimension' type='ordinal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='DATE(DATEPARSE ( &quot;yyyy-MM-dd&quot;, TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 2 ) ) )) ' />
+            </column>
+            <column caption='Muertes' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5]' role='measure' type='quantitative' user:SplitFieldIndex='5' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 5 ) ))' />
+            </column>
+            <column caption='Recuperados' datatype='integer' datatype-customized='true' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6]' role='measure' type='quantitative' user:SplitFieldIndex='6' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='INT(TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 6 ) ))' />
+            </column>
+            <column caption='Ciudad' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' role='dimension' type='nominal' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 8 ) )' />
+            </column>
+            <column caption='Concat' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]' role='dimension' type='nominal' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' derivation='None' name='[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' pivot='key' type='nominal' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5]' derivation='Sum' name='[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6]' derivation='Sum' name='[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2]' derivation='Day-Trunc' name='[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1ol70y109h5dm512ruy7f19hg1pr].[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6:qk]' field-type='quantitative' fold='true' major-origin='0' major-show='false' major-spacing='100000' minor-origin='0' minor-show='false' minor-spacing='10000' range-type='uniform' scope='rows' synchronized='true' type='space' />
+            <format attr='title' class='0' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6:qk]' scope='rows' value='' />
+            <encoding attr='space' class='0' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5:qk]' field-type='quantitative' range-type='uniform' scope='rows' type='space' />
+            <format attr='title' class='0' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]' scope='cols' value='Fecha' />
+            <format attr='title' class='0' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5:qk]' scope='rows' value='Número de casos' />
+            <format attr='width' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5:qk]' value='40' />
+            <format attr='width' field='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6:qk]' value='40' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ol70y109h5dm512ruy7f19hg1pr].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ol70y109h5dm512ruy7f19hg1pr].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1ol70y109h5dm512ruy7f19hg1pr].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 5:qk] + [federated.1ol70y109h5dm512ruy7f19hg1pr].[sum:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 6:qk])</rows>
+        <cols>[federated.1ol70y109h5dm512ruy7f19hg1pr].[tdy:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:qk]</cols>
+      </table>
+      <simple-id uuid='{E6A019BA-0CB1-44FE-A084-2B26D3114BEE}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource caption='data' name='federated.1ol70y109h5dm512ruy7f19hg1pr' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1ol70y109h5dm512ruy7f19hg1pr'>
+        <column caption='Ciudad' datatype='string' name='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' role='dimension' type='nominal' user:SplitFieldIndex='8' user:SplitFieldOrigin='[federated.1ol70y109h5dm512ruy7f19hg1pr].[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad]'>
+          <calculation class='tableau' formula='TRIM( SPLIT( [,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad], &quot;,&quot;, 8 ) )' />
+        </column>
+        <column-instance column='[,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8]' derivation='None' name='[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='4' w='100000' x='0' y='0'>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='7' param='horz' w='82400' x='16800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='98000' id='5' w='82400' x='16800' y='1000'>
+              <zone h='42125' id='3' name='Contagios' w='82400' x='16800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='30375' id='9' name='Recup vs Muer' w='82400' x='16800' y='68625'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='25500' id='15' name='Activos' w='82400' x='16800' y='43125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='16' param='vert' w='16000' x='800' y='1000'>
+            <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='24625' id='8' name='Contagios' param='[federated.1ol70y109h5dm512ruy7f19hg1pr].[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' w='16000' x='800' y='1000'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='9000' id='10' name='Recup vs Muer' pane-specification-id='1' param='[federated.1ol70y109h5dm512ruy7f19hg1pr].[:Measure Names]' w='16000' x='800' y='25625'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='900' minheight='900' sizing-mode='vscroll' />
+          <zones>
+            <zone _.fcp.SetMembershipControl.false...type='layout-basic' _.fcp.SetMembershipControl.true...type-v2='layout-basic' h='100000' id='50' w='100000' x='0' y='0'>
+              <zone _.fcp.SetMembershipControl.false...type='layout-flow' _.fcp.SetMembershipControl.true...type-v2='layout-flow' h='98000' id='49' param='vert' w='98400' x='800' y='1000'>
+                <zone _.fcp.SetMembershipControl.false...type='filter' _.fcp.SetMembershipControl.true...type-v2='filter' h='24625' id='8' mode='checkdropdown' name='Contagios' param='[federated.1ol70y109h5dm512ruy7f19hg1pr].[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' w='16000' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='42125' id='3' is-fixed='true' name='Contagios' w='82400' x='16800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='196' h='25500' id='15' is-fixed='true' name='Activos' w='82400' x='16800' y='43125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='235' h='30375' id='9' is-fixed='true' name='Recup vs Muer' w='82400' x='16800' y='68625'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone _.fcp.SetMembershipControl.false...type='color' _.fcp.SetMembershipControl.true...type-v2='color' h='9000' id='10' name='Recup vs Muer' pane-specification-id='1' param='[federated.1ol70y109h5dm512ruy7f19hg1pr].[:Measure Names]' w='16000' x='800' y='25625'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{D9D47C8C-45D1-4A1C-B467-CDC27C86CFF3}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='Contagios'>
+      <cards>
+        <edge name='left'>
+          <strip size='200'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='37'>
+            <card type='columns' />
+          </strip>
+          <strip size='37'>
+            <card type='rows' />
+          </strip>
+          <strip size='37'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='217'>
+            <card param='[federated.1ol70y109h5dm512ruy7f19hg1pr].[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ol70y109h5dm512ruy7f19hg1pr].[none:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 8:nk]</field>
+            <field>[federated.1ol70y109h5dm512ruy7f19hg1pr].[yr:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{5360D1CA-F46C-45E1-98C5-949294D47D90}' />
+    </window>
+    <window class='worksheet' name='Recup vs Muer'>
+      <cards>
+        <edge name='left'>
+          <strip size='200'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='37'>
+            <card type='columns' />
+          </strip>
+          <strip size='37'>
+            <card type='rows' />
+          </strip>
+          <strip size='37'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='174'>
+            <card pane-specification-id='1' param='[federated.1ol70y109h5dm512ruy7f19hg1pr].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ol70y109h5dm512ruy7f19hg1pr].[:Measure Names]</field>
+            <field>[federated.1ol70y109h5dm512ruy7f19hg1pr].[yr:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{FBCF9B0C-6A0B-4DEE-B608-DF50ECF736D2}' />
+    </window>
+    <window class='worksheet' name='Activos'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1ol70y109h5dm512ruy7f19hg1pr].[yr:,Fecha,Contagios acum,Activos,Muertes,Recuperados,Contagios por día,Ciudad - División 2:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{47A2FBF4-A928-4617-AF49-43F365AB0AC8}' />
+    </window>
+    <window class='worksheet' name='Card Activos'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{941E7A95-7E79-4554-9301-A2F18978D680}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Activos'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Contagios'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Recup vs Muer'>
+          <zoom type='entire-view' />
+          <highlight>
+            <color-one-way>
+              <field>[federated.1ol70y109h5dm512ruy7f19hg1pr].[:Measure Names]</field>
+            </color-one-way>
+          </highlight>
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{9F1EB043-DF30-4ABE-A825-CE491BD7FB3D}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Activos' width='192'>
+      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
+      1f4PQjmj8n3iobwAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='84' name='Card Activos' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Contagios' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+      AAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Recup vs Muer' width='192'>
+      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
+      R9+nAhCv/R/dkGl7BFaYZQAAAABJRU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
