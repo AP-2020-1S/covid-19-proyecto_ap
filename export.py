@@ -93,4 +93,11 @@ for i in ciudades:
 union = np.concatenate([union_Bar,union_Bog,union_Cal,union_Car,union_Med])
 union = pd.DataFrame(union,columns=['Fecha','Contagios acum','Activos','Muertes','Recuperados','Contagios por dia','Ciudad'])
 
+#Convertir a enteros
+union['Contagios acum'] = pd.to_numeric(union['Contagios acum'], downcast='signed')
+union['Activos'] = pd.to_numeric(union['Activos'], downcast='signed')
+union['Muertes'] = pd.to_numeric(union['Muertes'], downcast='signed')
+union['Recuperados'] = pd.to_numeric(union['Recuperados'], downcast='signed')
+union['Contagios por dia'] = pd.to_numeric(union['Contagios por dia'], downcast='signed')
+
 union.to_csv('data.csv')
