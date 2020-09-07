@@ -1,6 +1,3 @@
-import urllib3
-import certifi
-import json
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -86,6 +83,7 @@ for i in ciudades:
 
 # DataFrames union
 for i in ciudades:
+  globals()['union_'+str(i[0:3])] = []
   globals()['union_'+str(i[0:3])] = pd.merge(pd.merge(pd.merge(pd.merge(globals()['cum_'+str(i[0:3])],globals()['acum_'+str(i[0:3])],on='Fecha'),globals()['mcum_'+str(i[0:3])],on='Fecha'),globals()['rcum_'+str(i[0:3])],on='Fecha'),globals()['c_'+str(i[0:3])],on='Fecha')
   globals()['union_'+str(i[0:3])] = globals()['union_'+str(i[0:3])].drop(columns=['index_x','index_y','index'])
   globals()['union_'+str(i[0:3])]['Ciudad'] = i
